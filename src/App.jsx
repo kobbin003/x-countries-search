@@ -12,11 +12,14 @@ function App() {
 	};
 
 	const filteredFlags = searchQuery
-		? flagLists.filter(({ name }) => name.toLowerCase().includes(searchQuery))
+		? flagLists.filter(({ common }) =>
+				common.toLowerCase().includes(searchQuery)
+		  )
 		: flagLists;
 
 	useEffect(() => {
-		const url = "https://xcountries-backend.azurewebsites.net/all";
+		const url =
+			"https://countries-search-data-prod-812920491762.asia-south1.run.app/countries";
 		axios
 			.get(url)
 			.then((res) => setFlagLists(res.data))
@@ -38,10 +41,10 @@ function App() {
 			</div>
 			<div className="flag-grid">
 				{filteredFlags.length > 0 ? (
-					filteredFlags.map(({ name, flag }) => (
+					filteredFlags.map(({ common, png }) => (
 						<div className="flag-grid-item">
-							<img src={flag} alt={name} />
-							<p>{name}</p>
+							<img src={png} alt={common} />
+							<p>{common}</p>
 						</div>
 					))
 				) : (
