@@ -32,7 +32,7 @@ function App() {
 		<div>
 			<div className="search-container">
 				<input
-					type="search"
+					type="text"
 					name="search"
 					id="search"
 					className="search"
@@ -42,7 +42,7 @@ function App() {
 			<div className="flag-grid">
 				{filteredFlags.length > 0 ? (
 					filteredFlags.map(({ common, png }) => (
-						<div className="flag-grid-item">
+						<div className="countryCard">
 							<img src={png} alt={common} />
 							<p>{common}</p>
 						</div>
