@@ -13,7 +13,7 @@ function App() {
 
 	const filteredFlags = searchQuery
 		? flagLists.filter(({ common }) =>
-				common.toLowerCase().includes(searchQuery)
+				common.toLowerCase().includes(searchQuery.toLowerCase())
 		  )
 		: flagLists;
 
